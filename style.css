@@ -91,11 +91,38 @@ header {
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-    overflow: hidden;
+    overflow:hidden;
+    transition: transform .5s ease, height .2s ease;
+    transform: scale(0)
+}
+.wrapper.active-pop {
+    transform: scale(1)
+}
+.wrapper.active {
+    height: 520px;
 }
 .form-box {
     width: 100%;
     padding: 40px
+}
+
+.wrapper .form-box.login {
+    position:absolute;
+    transform: translateX(0);
+    transition: transform .18s ease
+}
+.wrapper.active .form-box.login {
+    transform: translateX(-400px);
+    transition: none
+}
+.wrapper .form-box.register {
+    position:absolute;
+    transform: translateX(400px);
+    transition: transform none;
+}
+.wrapper.active .form-box.register{
+    transform: translateX(0);
+    transition: transform .18s ease
 }
 .wrapper .icon-close {
     position: absolute;
@@ -111,6 +138,7 @@ header {
     align-items: center;
     cursor: pointer;
     border-bottom-left-radius: 20px;
+    z-index: 1;
 }
 .form-box h2 {
     text-align: center;
@@ -207,7 +235,9 @@ header {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
+    margin-left: 5px;
 }
 .login-register p a:hover {
     text-decoration: underline;
 }
+
